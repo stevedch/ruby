@@ -15,8 +15,8 @@
 		<td> <%= article.created_at.strftime('%Y-%m-%d %H:%M:%S') %> </td>
 		<td> <%= article.updated_at.strftime('%Y-%m-%d %H:%M:%S') %> </td>
 		<td>
-			<a href="">Actualizar</a>
-			<a href="">Eliminar</a>
+			<%= link_to 'Mostrar', article_path(article) %>
+			<%= link_to 'Editar', edit_article_path(article) %>
 		</td>
 	</tr>
 	<% end %>

@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
 		@article = Article.new
 	end
 
+
 	def create
 
 		# render plain: params[:article].inspect
@@ -21,6 +22,27 @@ class ArticlesController < ApplicationController
 
 	end
 
+
+	def edit
+
+		@article = Article.find(params[:id])
+
+	end
+
+
+	def update
+
+		@article = Article.find(params[:id])
+
+		if @article.update(article_params)
+			redirect_to @article
+		else
+			render 'edit'
+		end
+
+	end
+
+
 	def show
 		@article = Article.find(params[:id])
 	end
@@ -34,6 +56,11 @@ class ArticlesController < ApplicationController
 
 	protected
 	def article_params_allow_inheritance_class
+		params.require(:article).permit(:title, :text)
+	end
+
+	private
+	def article_params
 		params.require(:article).permit(:title, :text)
 	end
 
