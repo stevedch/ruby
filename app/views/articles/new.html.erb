@@ -19,7 +19,16 @@
 
 			<!-- Add your site or application content here -->
 			<%= form_for :article, url: articles_path do |f| %>
-
+			<% if @article.errors.any? %>
+			<div id="error_explanation">
+				<h2><%= pluralize(@article.errors.count, "error") %> prohibido este artículo se guarde:</h2>
+				  <ul>
+					<% @article.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+					<% end %>
+				</ul>
+			</div>
+			<% end %>
 			<p>
 				<%= f.label :title %><br>
 				<%= f.text_field :title %>
