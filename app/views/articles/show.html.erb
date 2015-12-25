@@ -1,0 +1,17 @@
+<h1>  Articulo N°: <%= @article.id %> </h1>
+
+<table>
+
+    <tr>
+        <th> Título: </th>
+        <th> <%= @article.title %> </th>
+    </tr>
+
+    <tr>
+        <th> Texto: </th>
+        <th> <%= @article.text %> </th>
+    </tr>
+
+</table>
+
+<%= link_to 'Inicio', root_path %>
