@@ -1,26 +1,63 @@
-<h1> Lista de artículos </h1>
+<div class="container" style="top: 70px; position: relative;">
 
-<table>
-	<tr>
-		<th> Título </th>
-		<th> Texto </th>
-		<th> Fecha Creación </th>
-		<th> Fecha Actualización </th>
-		<th> Opciones </th>
-	</tr>
-	<% @articles.each do |article| %>
-	<tr>
-		<td> <%= article.title  %> </td>
-		<td> <%= article.text  %> </td>
-		<td> <%= article.created_at.strftime('%Y-%m-%d %H:%M:%S') %> </td>
-		<td> <%= article.updated_at.strftime('%Y-%m-%d %H:%M:%S') %> </td>
-		<td>
-			<%= link_to 'Mostrar', article_path(article) %>
-			<%= link_to 'Editar', edit_article_path(article) %>
-			<%= link_to 'Eliminar', article_path(article), method: :delete, data: { confirm: '¿Estás seguro?' } %>
-		</td>
-	</tr>
+	<table class="table table-striped table-hover">
+		<caption>Lista de artículos</caption>
+		<tr>
+			<th class="text-muted">
+				<small> Título </small>
+			</th>
+			<th class="text-muted">
+				<small> Texto </small>
+			</th>
+			<th class="text-muted">
+				<small> Fecha Creación </small>
+			</th>
+			<th class="text-muted">
+				<small> Fecha Actualización </small>
+			</th>
+			<th class="text-muted">
+				<small> Opciones </small>
+			</th>
+		</tr>
+		<% @articles.each do |article| %>
+		<tr>
+			<td>
+				<small><%= article.title  %></small>
+			</td>
+			<td>
+				<small><%= article.text  %></small>
+			</td>
+			<td>
+				<small><%= article.created_at.strftime('%Y-%m-%d %H:%M:%S') %></small>
+			</td>
+			<td>
+				<small><%= article.updated_at.strftime('%Y-%m-%d %H:%M:%S') %></small>
+			</td>
+			<td>
+				<%= link_to  article_path(article), :class => 'btn btn-default btn-xs' do %>
+				<small>
+					<strong> Mostrar </strong>
+				</small>
+				<% end %>
+
+				<%= link_to edit_article_path(article), :class => 'btn btn-warning btn-xs' do %>
+				<small>
+					<strong> Editar </strong>
+				</small>
+				<% end %>
+
+				<%= link_to article_path(article), :class => 'btn btn-danger btn-xs', method: :delete, data: { confirm: '¿Estás seguro?' }  do %>
+				<small>
+					<strong> Eliminar </strong>
+				</small>
+				<% end %>
+			</td>
+		</tr>
+		<% end %>
+	</table>
+	<%= link_to new_article_path, :class => 'btn btn-default btn-xs' do %>
+	<small>
+		<strong> Nuevo Articulo </strong>
+	</small>
 	<% end %>
-</table>
-
-<%= link_to 'Nuevo Articulo', new_article_path %>
+</div>

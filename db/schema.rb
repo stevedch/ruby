@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20151225153432) do
     t.string   "title"
     t.text     "text"
     t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "updated_at", null: true
   end
 
 end

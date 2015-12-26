@@ -21,7 +21,7 @@
 			<%= form_for :article, url: articles_path do |f| %>
 			<% if @article.errors.any? %>
 			<div id="error_explanation">
-				<h2><%= pluralize(@article.errors.count, "error") %> prohibido este artículo se guarde:</h2>
+				<h2><%= pluralize(@article.errors.count, "error") %> prohibido este articulo se guarde:</h2>
 				  <ul>
 					<% @article.errors.full_messages.each do |msg| %>
 					<li><%= msg %></li>
@@ -44,8 +44,6 @@
 			</p>
 
 			<% end %>
-
-			<%= link_to 'Inicio', root_path %>
 
 			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 			<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
