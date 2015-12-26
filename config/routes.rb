@@ -1,8 +1,15 @@
 Blog::Application.routes.draw do
 
 	# namespace :seccion_articles do
-	resources :articles
+	# resources :articles do
+	# 	resources :comments
 	# end
+	# end
+
+	resources :articles do
+		resources :comments
+	end
+
 
 	# namespace :wellcome do
 		# resources :about

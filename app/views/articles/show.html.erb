@@ -34,8 +34,43 @@
 </table>
 
 
+<h4>Comentarios</h4>
+<% @article.comments.each do |comment| %>
+<p>
+	<strong>Título:</strong>
+	<%= comment.commenter %>
+</p>
+
+<p>
+	<strong>Comentario:</strong>
+	<%= comment.body %>
+</p>
+<% end %>
+
+<h4>Agregar un comentario:</h4>
+
+<%= form_for([@article, @article.comments.build]) do |f| %>
+<p>
+	<%= f.label :título %><br>
+	<%= f.text_field :commenter %>
+</p>
+<p>
+	<%= f.label :comentario %><br>
+	<%= f.text_area :body %>
+</p>
+<p>
+	<%= button_tag(type: 'submit', class: 'btn btn-default btn-xs') do %>
+	<i class="icon-ok icon-white"></i> <strong> Guardar </strong>
+	<% end %>
+</p>
+<% end %>
+
+
 <%= link_to new_article_path, :class => 'btn btn-default btn-xs' do %>
-<small>
-	<strong> Nuevo Articulo </strong>
-</small>
+<strong> Nuevo Articulo </strong>
+<% end %>
+
+
+<%= link_to edit_article_path(@article), :class => 'btn btn-warning btn-xs' do %>
+<strong> Editar </strong>
 <% end %>
