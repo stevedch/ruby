@@ -1,16 +1,41 @@
-<h1>  Articulo N°: <%= @article.id %> </h1>
 
-<table>
+<table table table-striped table-hover>
+
+	<caption> Título: <%= @article.title %> </caption>
 
 	<tr>
 		<th> Título: </th>
-		<th> <%= @article.title %> </th>
+		<td>
+			<small> <%= @article.title %> </small>
+		</td>
 	</tr>
 
 	<tr>
 		<th> Texto: </th>
-		<th> <%= @article.text %> </th>
+		<td>
+			<small> <%= @article.text %> </small>
+		</td>
+	</tr>
+
+	<tr>
+		<th> Creado el:  &nbsp;</th>
+		<td>
+			<small> <%= @article.created_at.strftime('%Y-%m-%d %H:%M:%S') %> </small>
+		</td>
+	</tr>
+
+	<tr>
+		<th> Actualizado el: &nbsp;</th>
+		<td>
+			<small> <%= @article.updated_at.strftime('%Y-%m-%d %H:%M:%S') %> </small>
+		</td>
 	</tr>
 
 </table>
-<%= link_to 'Nuevo Articulo', new_article_path %>
+
+
+<%= link_to new_article_path, :class => 'btn btn-default btn-xs' do %>
+<small>
+	<strong> Nuevo Articulo </strong>
+</small>
+<% end %>
