@@ -59,7 +59,6 @@ class ArticlesController < ApplicationController
 
 	end
 
-
 	#methods private and protected
 	private
 	def article_params_allow_class
