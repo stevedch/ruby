@@ -45,6 +45,12 @@
 	<strong>Comentario:</strong>
 	<%= comment.body %>
 </p>
+
+
+<%= link_to [comment.article, comment], :class => 'btn btn-danger btn-xs' ,method: :delete, data: { confirm: 'Desea Eliminar?' } do %>
+	<strong> Eliminar  </strong>
+<% end %>
+
 <% end %>
 
 <h4>Agregar un comentario:</h4>
